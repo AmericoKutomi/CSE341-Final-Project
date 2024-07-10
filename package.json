@@ -1,0 +1,22 @@
+{
+  "name": "School Management System",
+  "version": "1.0.0",
+  "description": "Collect data of students, teachers, users, and courses API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmericoKutomi/CSE341-Final-Project.git"
+  },
+  "author": "Team 6 CSE341-2024",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AmericoKutomi/CSE341-Final-Project/issues"
+  },
+  "homepage": "https://github.com/AmericoKutomi/CSE341-Final-Project#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
