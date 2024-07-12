@@ -4,6 +4,7 @@ const { courseValidationRules } = require('../midddlewares/courseValidate');
 
 const router = express.Router();
 
+// POST /courses
 router.post('/', 
   Validator(courseValidationRules()), 
   (req, res) => {
@@ -11,5 +12,6 @@ router.post('/',
     res.send('Course created successfully');
   }
 );
+
 
 module.exports = router;
