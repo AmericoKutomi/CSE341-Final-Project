@@ -1,0 +1,24 @@
+### localhost requests
+
+@localhostname = http://localhost:8080
+
+// COURSES REQUESTS
+### Get all courses
+GET {{localhostname}}/courses
+
+### Get course by id
+GET {{localhostname}}/courses/667f14069f26d41793a39bc1
+
+### Create a course
+POST {{localhostname}}/courses
+Content-Type: application/json
+
+{
+    "name": "English 101",
+    "description": "English basics",
+    "prerequisites": ["none"],
+    "syllabus": "English basics",
+    "duration": 1,
+    "delivery_mode": "online",
+    "tuition_fee": 1000
+}

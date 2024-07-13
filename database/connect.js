@@ -9,7 +9,7 @@ const initDb = (callback) => {
     console.log('Db is already initialized!');
     return callback(null, _db);
   }
-  console.log('Vai logar no MongoDB');
+  console.log('It will connect to MongoDB using URI...');
   MongoClient.connect(process.env.MONGODB_URI)
     .then((client) => {
       _db = client;
@@ -18,7 +18,7 @@ const initDb = (callback) => {
     .catch((err) => {
       callback(err);
     });
-  console.log('Logou no MongoDB');
+  console.log('Connected to MongoDB');
 };
 
 const getDb = () => {

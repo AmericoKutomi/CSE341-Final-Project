@@ -2,7 +2,6 @@ const { check } = require('express-validator');
 
 const courseValidationRules = () => {
   return [
-    check('_id').isMongoId().withMessage('Invalid ID format'),
     check('name').isLength({ min: 3 }).withMessage('Name must be at least 3 characters long'),
     check('description').isLength({ min: 10 }).withMessage('Description must be at least 10 characters long'),
     check('prerequisites').optional().isArray().withMessage('Prerequisites must be an array'),

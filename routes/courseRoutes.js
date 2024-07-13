@@ -1,17 +1,20 @@
 const express = require('express');
 const Validator = require('../midddlewares/validate');
 const { courseValidationRules } = require('../midddlewares/courseValidate');
+const courseController = require('../controllers/courseController')
 
 const router = express.Router();
 
-// POST /courses
-router.post('/', 
-  Validator(courseValidationRules()), 
-  (req, res) => {
-    // Handle the request
-    res.send('Course created successfully');
-  }
-);
+router.get('/', courseController.getAllCourse);
 
+router.post('/', Validator(courseValidationRules()), courseController.createCourse);
+
+router.get('/:id', courseController.getSingleCourse);
+
+router.put('/:id', Validator(courseValidationRules),courseController.updateCourse);
+
+router.delete('/:id', courseController.deleteCourse);
 
 module.exports = router;
+
+

@@ -29,7 +29,6 @@ const createCourse = async (data) => {
   const course = {
     name: data.name,
     description: data.description,
-    lastName: req.body.lastName,
     prerequisites: data.prerequisites,
     syllabus: data.syllabus,
     duration: data.duration,
@@ -49,7 +48,6 @@ const updateCourse = async (data, id) => {
   const course = {
     name: data.name,
     description: data.description,
-    lastName: req.body.lastName,
     prerequisites: data.prerequisites,
     syllabus: data.syllabus,
     duration: data.duration,
