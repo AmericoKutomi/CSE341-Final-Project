@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { validateUser, validateUserUpdate, validate } = require('../middlewares/userValidate');
+const { validateUser, validateUserUpdate, validate } = require('../midddlewares/userValidate');
 const userController = require('../controllers/userController');
 
 // Routes for users
