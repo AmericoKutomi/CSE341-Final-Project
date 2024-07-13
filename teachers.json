@@ -1,0 +1,14 @@
+[{
+  "_id": {
+    "$oid": "66917c6a8bd6feaa17b05f98"
+  },
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  "phone_number": "123-456-7890",
+  "qualification": "Masters in Education",
+  "experience": 10,
+  "subjects_taught": [
+    "Mathematics",
+    "Science"
+  ]
+}]
