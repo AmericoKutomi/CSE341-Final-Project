@@ -12,6 +12,7 @@ const teacherValidationRules = () => {
   ];
 };
 
+
 module.exports = {
   teacherValidationRules
 };
