@@ -37,13 +37,13 @@ const AddStudent = async (req, res) => {
     //#swagger.tags=['Students']
     const student =
     {
-        first_name: data.first_name,
-        last_name: data.last_name,
-        email: data.email,
-        address: data.address,
-        gender: data.gender,
-        birthdate: data.birthdate,
-        phone_number: data.phone_number
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email,
+        address: req.body.address,
+        gender: req.body.gender,
+        birthdate: req.body.birthdate,
+        phone_number: req.body.phone_number
     }
     const dataResult = await db.addStudent(student)
     if (dataResult) {
@@ -61,13 +61,13 @@ const UpdateStudent = async (req, res) => {
         }
         const student =
         {
-            first_name: data.first_name,
-            last_name: data.last_name,
-            email: data.email,
-            address: data.address,
-            gender: data.gender,
-            birthdate: data.birthdate,
-            phone_number: data.phone_number
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            email: req.body.email,
+            address: req.body.address,
+            gender: req.body.gender,
+            birthdate: req.body.birthdate,
+            phone_number: req.body.phone_number
         }
         const student_id = new ObjectId(req.params.id)
         const dataResult = await db.updateStudent(student, student_id)
