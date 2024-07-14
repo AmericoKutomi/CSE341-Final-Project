@@ -2,6 +2,7 @@ const db = require('../models/userModel'); // Assuming you have a userModel for 
 const ObjectId = require('mongodb').ObjectId;
 
 const getAllUsers = async (req, res) => {
+    //#swagger.tags=['users']
     try {
         const users = await db.getAll();
         res.json(users);
@@ -11,6 +12,7 @@ const getAllUsers = async (req, res) => {
 };
 
 const getSingleUser = async (req, res) => {
+    //#swagger.tags=['users']
     if (!ObjectId.isValid(req.params.id)) {
         return res.status(400).json('Must use a valid user id to get that user.');
     }
@@ -27,6 +29,7 @@ const getSingleUser = async (req, res) => {
 };
 
 const createUser = async (req, res) => {
+    //#swagger.tags=['users']
     const user = {
         username: req.body.username,
         email: req.body.email,
@@ -42,6 +45,7 @@ const createUser = async (req, res) => {
 };
 
 const updateUser = async (req, res) => {
+    //#swagger.tags=['users']
     if (!ObjectId.isValid(req.params.id)) {
         return res.status(400).json('Must use a valid user id to update a user.');
     }
@@ -64,6 +68,7 @@ const updateUser = async (req, res) => {
 };
 
 const deleteUser = async (req, res) => {
+    //#swagger.tags=['users']
     if (!ObjectId.isValid(req.params.id)) {
         return res.status(400).json('Must use a valid user id to delete a user.');
     }
