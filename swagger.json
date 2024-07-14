@@ -7,7 +7,7 @@
   },
   "host": "cse341-final-project-invp.onrender.com/api-docs/",
   "basePath": "/",
-  "schemes": ["http"],
+  "schemes": ["https", "http"],
   "paths": {
     "/": {
       "get": {
