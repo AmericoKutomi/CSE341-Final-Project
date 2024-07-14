@@ -5,15 +5,15 @@ const courseController = require('../controllers/courseController')
 
 const router = express.Router();
 
-router.get('/', courseController.getAllCourse);
+router.get('/', isAuthenticated, courseController.getAllCourse);
 
-router.post('/', Validator(courseValidationRules()), courseController.createCourse);
+router.post('/', isAuthenticated, Validator(courseValidationRules()), courseController.createCourse);
 
-router.get('/:id', courseController.getSingleCourse);
+router.get('/:id', isAuthenticated, courseController.getSingleCourse);
 
-router.put('/:id', Validator(courseValidationRules),courseController.updateCourse);
+router.put('/:id', isAuthenticated, Validator(courseValidationRules),courseController.updateCourse);
 
-router.delete('/:id', courseController.deleteCourse);
+router.delete('/:id', isAuthenticated, courseController.deleteCourse);
 
 module.exports = router;
 
