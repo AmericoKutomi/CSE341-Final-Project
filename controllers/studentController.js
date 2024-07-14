@@ -2,6 +2,7 @@ const db = require('../models/studentModel');
 const ObjectId = require('mongodb').ObjectId
 
 const GetAllStudents = async (req, res) => {
+    //#swagger.tags=['Students']
     try {
         const students = await db.getAll()
         res.setHeader('content-type', 'application/json')
@@ -12,6 +13,7 @@ const GetAllStudents = async (req, res) => {
 }
 
 const GetSingle = async (req, res) => {
+    //#swagger.tags=['Students']
     try {
         if (!ObjectId.isValid(req.params.id)) {
             res.status(422).json("Invalid Id, please give a correct id")
@@ -32,6 +34,7 @@ const GetSingle = async (req, res) => {
     }
 }
 const AddStudent = async (req, res) => {
+    //#swagger.tags=['Students']
     const dataResult = await db.addStudent(req.body)
     if (dataResult) {
         res.status(201).send()
@@ -40,6 +43,7 @@ const AddStudent = async (req, res) => {
     }
 }
 const UpdateStudent = async (req, res) => {
+    //#swagger.tags=['Students']
     try {
         if (!ObjectId.isValid(req.params.id)) {
             res.status(422).json("Invalid ID, please give a correct ID")
@@ -65,6 +69,7 @@ const UpdateStudent = async (req, res) => {
 
 }
 const DeleteStudent = async (req, res) => {
+    //#swagger.tags=['Students']
     try {
         if (!ObjectId.isValid(req.params.id)) {
             res.status(422).json("Invalid ID, please give a correct ID")
