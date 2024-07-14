@@ -1,16 +1,22 @@
 
 // Creating a button element
 const button = document.createElement('button');
-button.textContent = 'Login with github';
 
-// Adding styles using class
 button.classList.add('styled-button');
 
+// Creating an anchor element
+const anchor = document.createElement('a');
+anchor.setAttribute('href', 'http://localhost:8080/login');
+anchor.textContent = 'Login with github';
 
-// Adding event listener
-button.addEventListener('click', function() {
-    alert('Welcome to API School Management System');
-});
+// Styling the anchor element
+anchor.style.textDecoration = 'none'; // Remove underline
+
+// Appending anchor to the button
+button.appendChild(anchor);
+
+
+
 
 // Appending button to the document body
 document.body.appendChild(button);
