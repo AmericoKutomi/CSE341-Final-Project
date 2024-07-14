@@ -64,7 +64,7 @@ app.get('/', (req, res) => {
     res.send(req.session.user !== undefined ? `logged in as ${req.session.user.displayName}`: "logged Out")
 })
 
-app.get('/auth/github/callback', passport.authenticate('github', {
+app.get('/github/callback', passport.authenticate('github', {
     failureRedirect: "/api-docs", session: false
 }),
 (req, res) => {
