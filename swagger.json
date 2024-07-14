@@ -5,11 +5,9 @@
     "description": "API to handle courses, teachers, students, and users",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "cse341-final-project-invp.onrender.com/api-docs/",
   "basePath": "/",
-  "schemes": [
-    "http"
-  ],
+  "schemes": ["http"],
   "paths": {
     "/": {
       "get": {
@@ -53,13 +51,9 @@
     },
     "/teachers/": {
       "get": {
-        "tags": [
-          "Teachers"
-        ],
+        "tags": ["Teachers"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -70,9 +64,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Teachers"
-        ],
+        "tags": ["Teachers"],
         "description": "",
         "parameters": [
           {
@@ -121,13 +113,9 @@
     },
     "/teachers/{id}": {
       "get": {
-        "tags": [
-          "Teachers"
-        ],
+        "tags": ["Teachers"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
@@ -155,9 +143,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Teachers"
-        ],
+        "tags": ["Teachers"],
         "description": "",
         "parameters": [
           {
@@ -210,9 +196,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Teachers"
-        ],
+        "tags": ["Teachers"],
         "description": "",
         "parameters": [
           {
@@ -243,9 +227,7 @@
     },
     "/courses/": {
       "get": {
-        "tags": [
-          "Courses"
-        ],
+        "tags": ["Courses"],
         "description": "",
         "responses": {
           "200": {
@@ -254,9 +236,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Courses"
-        ],
+        "tags": ["Courses"],
         "description": "",
         "parameters": [
           {
@@ -305,9 +285,7 @@
     },
     "/courses/{id}": {
       "get": {
-        "tags": [
-          "Courses"
-        ],
+        "tags": ["Courses"],
         "description": "",
         "parameters": [
           {
@@ -330,9 +308,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Courses"
-        ],
+        "tags": ["Courses"],
         "description": "",
         "parameters": [
           {
@@ -385,9 +361,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Courses"
-        ],
+        "tags": ["Courses"],
         "description": "",
         "parameters": [
           {
@@ -412,9 +386,7 @@
     },
     "/users/users": {
       "get": {
-        "tags": [
-          "users"
-        ],
+        "tags": ["users"],
         "description": "",
         "responses": {
           "200": {
@@ -426,9 +398,7 @@
         }
       },
       "post": {
-        "tags": [
-          "users"
-        ],
+        "tags": ["users"],
         "description": "",
         "parameters": [
           {
@@ -465,9 +435,7 @@
     },
     "/users/users/{id}": {
       "get": {
-        "tags": [
-          "users"
-        ],
+        "tags": ["users"],
         "description": "",
         "parameters": [
           {
@@ -493,9 +461,7 @@
         }
       },
       "put": {
-        "tags": [
-          "users"
-        ],
+        "tags": ["users"],
         "description": "",
         "parameters": [
           {
@@ -542,9 +508,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "users"
-        ],
+        "tags": ["users"],
         "description": "",
         "parameters": [
           {
@@ -572,13 +536,9 @@
     },
     "/students/": {
       "get": {
-        "tags": [
-          "Students"
-        ],
+        "tags": ["Students"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "responses": {
           "200": {
             "description": "OK"
@@ -589,9 +549,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Students"
-        ],
+        "tags": ["Students"],
         "description": "",
         "responses": {
           "201": {
@@ -605,13 +563,9 @@
     },
     "/students/{id}": {
       "get": {
-        "tags": [
-          "Students"
-        ],
+        "tags": ["Students"],
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "produces": ["application/json"],
         "parameters": [
           {
             "name": "id",
@@ -636,9 +590,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Students"
-        ],
+        "tags": ["Students"],
         "description": "",
         "parameters": [
           {
@@ -666,9 +618,7 @@
     },
     "/{students}/": {
       "delete": {
-        "tags": [
-          "Students"
-        ],
+        "tags": ["Students"],
         "description": "",
         "parameters": [
           {
