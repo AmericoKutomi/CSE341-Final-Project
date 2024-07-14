@@ -35,7 +35,17 @@ const GetSingle = async (req, res) => {
 }
 const AddStudent = async (req, res) => {
     //#swagger.tags=['Students']
-    const dataResult = await db.addStudent(req.body)
+    const student =
+    {
+        first_name: data.first_name,
+        last_name: data.last_name,
+        email: data.email,
+        address: data.address,
+        gender: data.gender,
+        birthdate: data.birthdate,
+        phone_number: data.phone_number
+    }
+    const dataResult = await db.addStudent(student)
     if (dataResult) {
         res.status(201).send()
     } else {
@@ -49,8 +59,18 @@ const UpdateStudent = async (req, res) => {
             res.status(422).json("Invalid ID, please give a correct ID")
             throw Error("Invalid id")
         }
+        const student =
+        {
+            first_name: data.first_name,
+            last_name: data.last_name,
+            email: data.email,
+            address: data.address,
+            gender: data.gender,
+            birthdate: data.birthdate,
+            phone_number: data.phone_number
+        }
         const student_id = new ObjectId(req.params.id)
-        const dataResult = await db.updateStudent(req.body, student_id)
+        const dataResult = await db.updateStudent(student, student_id)
         if (!dataResult.modifiedCount) {
             res.status(404).json({
                 status: 'fail',
