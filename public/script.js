@@ -6,7 +6,7 @@ button.classList.add('styled-button');
 
 // Creating an anchor element
 const anchor = document.createElement('a');
-anchor.setAttribute('href', 'https://cse341-final-project-invp.onrender.com/login');
+anchor.setAttribute('href', 'https://{{HOST}}/login');
 anchor.textContent = 'Login with github';
 
 // Styling the anchor element
