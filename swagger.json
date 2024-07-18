@@ -5,13 +5,9 @@
     "description": "API to handle courses, teachers, students, and users",
     "version": "1.0.0"
   },
-<<<<<<< HEAD
-  "host": "{{HOST}}",
-=======
-  "host": "localhost:3000",
->>>>>>> 92207ddb209bdb9774d3d99c61b5759918a1ca5e
+  "host": "localhost:8080",
   "basePath": "/",
-  "schemes": ["{{SCHEMES}}"],
+  "schemes": ["http"],
   "paths": {
     "/": {
       "get": {
