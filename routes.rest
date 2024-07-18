@@ -14,11 +14,11 @@ POST {{localhostname}}/courses
 Content-Type: application/json
 
 {
-    "name": "English 101",
-    "description": "English basics",
+    "name": "Physics",
+    "description": "Physics basics",
     "prerequisites": ["none"],
-    "syllabus": "English basics",
+    "syllabus": "Physics basics",
     "duration": 1,
     "delivery_mode": "online",
-    "tuition_fee": 1000
+    "tuition_fee": 1200
 }

@@ -11,7 +11,7 @@ router.post('/', isAuthenticated,
 teacherController.CreateTeacher
 );
 router.get('/:id',isAuthenticated, teacherController.getSingleTeacher)
-router.put('/:id', Validator(teacherValidationRules),
+router.put('/:id', Validator(teacherValidationRules()),
 teacherController.updateTeacher
 );
 router.delete('/:id',isAuthenticated, teacherController.deleteTeacher)
