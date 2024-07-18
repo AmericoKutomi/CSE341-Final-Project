@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.get('/', isAuthenticated, courseController.getAllCourse);
 
-router.post('/', isAuthenticated, Validator(courseValidationRules()), courseController.createCourse);
+router.post('/', isAuthenticated, Validator(courseValidationRules), courseController.createCourse);
 
 router.get('/:id', isAuthenticated, courseController.getSingleCourse);
 
