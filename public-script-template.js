@@ -15,8 +15,5 @@ anchor.style.textDecoration = 'none'; // Remove underline
 // Appending anchor to the button
 button.appendChild(anchor);
 
-
-
-
 // Appending button to the document body
 document.body.appendChild(button);
