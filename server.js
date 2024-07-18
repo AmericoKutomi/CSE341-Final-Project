@@ -24,18 +24,29 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-// Leia o template do Swagger
-const swaggerTemplate = fs.readFileSync(path.join(__dirname, 'swagger-template.json'), 'utf8');
 
-// Substitua os placeholders pelos valores das variáveis de ambiente
+// Carregue as variáveis de ambiente
 const host = process.env.HOST || 'localhost:8080';
 const schemes = host.includes('localhost') ? 'http' : 'https';
+
+// Leia o template do Swagger
+const swaggerTemplate = fs.readFileSync(path.join(__dirname, 'swagger-template.json'), 'utf8');
+// Substitua os placeholders pelos valores das variáveis de ambiente
 const swaggerDocument = swaggerTemplate
+    .replace('{{HOST}}', host)
+    .replace('{{SCHEMES}}', schemes);
+// Salve o arquivo gerado
+fs.writeFileSync(path.join(__dirname, 'swagger.json'), swaggerDocument);
+
+// Update public/index.html to use the HOST environment variable
+const publicIndexTemplate = fs.readFileSync(path.join(__dirname, 'public-script-template.js'), 'utf8');
+// Substitua os placeholders pelos valores das variáveis de ambiente
+const publicIndexDocument = publicIndexTemplate
     .replace('{{HOST}}', host)
     .replace('{{SCHEMES}}', schemes);
 
 // Salve o arquivo gerado
-fs.writeFileSync(path.join(__dirname, 'swagger.json'), swaggerDocument);
+fs.writeFileSync(path.join(__dirname, '/public/script.js'), publicIndexDocument);
 
 // This is the basic express session initialization.
 app.use(session({
