@@ -5,9 +5,9 @@
     "description": "API to handle courses, teachers, students, and users",
     "version": "1.0.0"
   },
-  "host": "cse341-final-project-t4qs.onrender.com",
+  "host": "{{HOST}}",
   "basePath": "/",
-  "schemes": ["https"],
+  "schemes": ["{{SCHEMES}}"],
   "paths": {
     "/": {
       "get": {

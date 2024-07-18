@@ -9,10 +9,33 @@ const session = require('express-session')
 const GithubStrategy = require('passport-github2').Strategy
 const cors = require('cors')
 const port = process.env.PORT
+const fs = require('fs');
+const path = require('path');
 
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(static)
+
+const corsOptions = {
+    origin: '*', // Ou especifique os domínios permitidos
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'] // Adicione outros cabeçalhos conforme necessário
+  };
+
+app.use(cors(corsOptions));
+
+// Leia o template do Swagger
+const swaggerTemplate = fs.readFileSync(path.join(__dirname, 'swagger-template.json'), 'utf8');
+
+// Substitua os placeholders pelos valores das variáveis de ambiente
+const host = process.env.HOST || 'localhost:8080';
+const schemes = host.includes('localhost') ? 'http' : 'https';
+const swaggerDocument = swaggerTemplate
+    .replace('{{HOST}}', host)
+    .replace('{{SCHEMES}}', schemes);
+
+// Salve o arquivo gerado
+fs.writeFileSync(path.join(__dirname, 'swagger.json'), swaggerDocument);
 
 // This is the basic express session initialization.
 app.use(session({
@@ -20,6 +43,7 @@ app.use(session({
     resave:false,
     saveUninitialized:true,
 }))
+
 // Init passport on every routes call.
 app.use(passport.initialize())
 //Allow passport to use express-session
@@ -32,8 +56,7 @@ app.use((req,res,next) =>{
     next()
 })
 
-app.use(cors({methods:['GET', 'POST', 'PUT', 'DELETE']}))
-app.use(cors({origin:'*'}))
+
 app.use(express.static(__dirname + '../public'));
 app.use('/', require('./routes/index') )
 
