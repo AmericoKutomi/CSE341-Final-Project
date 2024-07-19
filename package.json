@@ -31,5 +31,8 @@
     "swagger-autogen": "^2.23.7",
     "swagger-ui-express": "^5.0.1"
   },
-  "keywords": []
+  "keywords": [],
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }
