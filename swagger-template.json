@@ -691,15 +691,13 @@
             "description": "Internal Server Error"
           }
         }
-      }
-    },
-    "/{students}/": {
+      },
       "delete": {
         "tags": ["Students"],
         "description": "",
         "parameters": [
           {
-            "name": "students",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"

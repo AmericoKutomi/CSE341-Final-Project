@@ -1,6 +1,6 @@
 const db = require('../models/studentModel');
 const ObjectId = require('mongodb').ObjectId
-
+const { validationResult } = require('express-validator')
 const GetAllStudents = async (req, res) => {
     //#swagger.tags=['Students']
     try {
@@ -35,22 +35,28 @@ const GetSingle = async (req, res) => {
 }
 const AddStudent = async (req, res) => {
     //#swagger.tags=['Students']
-    const student =
-    {
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
-        email: req.body.email,
-        address: req.body.address,
-        gender: req.body.gender,
-        birthdate: req.body.birthdate,
-        phone_number: req.body.phone_number
+    try {
+        validationResult(req).throw()
+        const student =
+        {
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            email: req.body.email,
+            address: req.body.address,
+            gender: req.body.gender,
+            birthdate: req.body.birthdate,
+            phone_number: req.body.phone_number
+        }
+        const dataResult = await db.addStudent(student)
+        if (dataResult) {
+            res.status(201).send()
+        } else {
+            res.status(500).json(dataResult.error || 'Some error occured while adding the student.')
+        }
+    } catch (e) {
+        res.status(422).json({ errors: e.mapped() })
     }
-    const dataResult = await db.addStudent(student)
-    if (dataResult) {
-        res.status(201).send()
-    } else {
-        res.status(500).json(dataResult.error || 'Some error occured while adding the student.')
-    }
+
 }
 const UpdateStudent = async (req, res) => {
     //#swagger.tags=['Students']
@@ -71,13 +77,14 @@ const UpdateStudent = async (req, res) => {
         }
         const student_id = new ObjectId(req.params.id)
         const dataResult = await db.updateStudent(student, student_id)
-        if (!dataResult.modifiedCount) {
+        if (dataResult.modifiedCount === 0) {
             res.status(404).json({
                 status: 'fail',
                 msg: 'No student with ID ' + student_id + ' is found to update.'
             })
         }
-        if (dataResult) {
+        else if (dataResult > 0) {
+            res.setHeader("Content-Type", "application/json")
             res.status(204).json('student was updated with success')
         } else {
             res.status(500).json(dataResult.error || 'Some error occured while update the student.')
@@ -98,12 +105,11 @@ const DeleteStudent = async (req, res) => {
         const student_id = new ObjectId(req.params.id)
         const dataResult = await db.deleteStudent(student_id)
         if (dataResult === 0) {
-            return res.status(404).json({
+            res.status(404).json({
                 status: 'Fail',
                 msg: 'No student with ID ' + student_id + ' was found to delete.'
             })
             throw Error(`No student with ID ${student_id} was found`)
-
         } else if (dataResult > 0) {
             return res.status(204).json({ status: "The record was deleted with success" })
         }

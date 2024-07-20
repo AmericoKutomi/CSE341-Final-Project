@@ -4,7 +4,7 @@
   "description": "Collect data of students, teachers, users, and courses API",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node server.js"
   },
   "repository": {
@@ -31,5 +31,8 @@
     "swagger-autogen": "^2.23.7",
     "swagger-ui-express": "^5.0.1"
   },
-  "keywords": []
+  "keywords": [],
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
 }

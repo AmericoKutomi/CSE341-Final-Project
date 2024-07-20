@@ -5,7 +5,7 @@
     "description": "API to handle courses, teachers, students, and users",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "localhost:3001",
   "basePath": "/",
   "schemes": ["http"],
   "paths": {
@@ -691,15 +691,13 @@
             "description": "Internal Server Error"
           }
         }
-      }
-    },
-    "/{students}/": {
+      },
       "delete": {
         "tags": ["Students"],
         "description": "",
         "parameters": [
           {
-            "name": "students",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
