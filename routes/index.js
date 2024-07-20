@@ -13,7 +13,7 @@ router.get('/login', passport.authenticate('github', (req, res) =>{}))
 router.get('/logout', function(req, res, next){
     req.logOut(function(err) {
         if(err){return next(err)}
-        res.send('You are logout, type "localhost:8080/login" to log')
+        res.send(`You are logout, type ${process.env.HOST}/login to log`)
     })
 })
 
