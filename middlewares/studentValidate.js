@@ -7,7 +7,7 @@ const studentValidationRules = () => {
         body('email').trim().isEmail(),
         body('address').trim().notEmpty(),
         body('gender').trim().notEmpty().isAlpha(),
-        body('birthdate').trim().notEmpty().isDate(),
+        body('birthdate').notEmpty().isISO8601().isDate().withMessage("Use the sintax yyyy-mm-dd"),
         body('phone_number').trim().isMobilePhone()
     ]
 }

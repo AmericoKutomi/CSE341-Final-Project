@@ -5,5 +5,5 @@ router.get("/", studentController.GetAllStudents)
 router.get("/:id", studentController.GetSingle)
 router.post("/", studentValidationRules(), studentController.AddStudent)
 router.put("/:id", studentValidationRules(), studentController.UpdateStudent)
-router.delete(":/", studentController.DeleteStudent)
+router.delete("/:id", studentController.DeleteStudent)
 module.exports = router
