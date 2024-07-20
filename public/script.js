@@ -6,7 +6,7 @@ button.classList.add('styled-button');
 
 // Creating an anchor element
 const anchor = document.createElement('a');
-anchor.setAttribute('href', 'http://localhost:8080/login');
+anchor.setAttribute('href', 'http://localhost:3000/login');
 anchor.textContent = 'Login with github';
 
 // Styling the anchor element

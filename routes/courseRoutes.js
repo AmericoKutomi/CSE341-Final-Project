@@ -1,8 +1,8 @@
 const express = require('express');
-const Validator = require('../midddlewares/validate');
-const { courseValidationRules } = require('../midddlewares/courseValidate');
+const Validator = require('../middlewares/validate');
+const { courseValidationRules } = require('../middlewares/courseValidate');
 const courseController = require('../controllers/courseController')
-const {isAuthenticated} = require('../midddlewares/authMiddleware')
+const {isAuthenticated} = require('../middlewares/authMiddleware')
 
 const router = express.Router();
 

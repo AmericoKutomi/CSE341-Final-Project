@@ -1,8 +1,8 @@
 const express = require('express');
-const Validator = require('../midddlewares/validate');
-const { teacherValidationRules } = require('../midddlewares/teacherValidate');
+const Validator = require('../middlewares/validate');
+const { teacherValidationRules } = require('../middlewares/teacherValidate');
 const teacherController = require('../controllers/teacherController')
-const {isAuthenticated} = require('../midddlewares/authMiddleware')
+const {isAuthenticated} = require('../middlewares/authMiddleware')
 
 const router = express.Router();
 router.get('/',isAuthenticated, teacherController.getAllTeacher);
