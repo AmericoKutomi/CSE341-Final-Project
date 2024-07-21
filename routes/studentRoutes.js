@@ -1,6 +1,6 @@
 const studentController = require('../controllers/studentController')
 const router = require('express').Router()
-const { studentValidationRules } = require('../midddlewares/studentValidate')
+const { studentValidationRules } = require('../middlewares/studentValidate')
 router.get("/", studentController.GetAllStudents)
 router.get("/:id", studentController.GetSingle)
 router.post("/", studentValidationRules(), studentController.AddStudent)

@@ -21,7 +21,7 @@ const GetSingle = async (req, res) => {
         }
         const student = await db.getSingle(req.params.id)
         if (!student) {
-            res.status(404).send("Teacher not found")
+            res.status(404).send("Student not found")
         }
         else {
             res.setHeader("Content-Type", "application/json")
