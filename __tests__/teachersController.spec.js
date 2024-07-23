@@ -16,7 +16,7 @@ jest.mock('../middlewares/authMiddleware', () => ({
 // Mock of controller functions
 jest.mock('../controllers/teacherController.js', () => ({
   getAllTeacher: jest.fn((req, res) => res.status(200).json([])),
-  createTeacher: jest.fn((req, res) => res.status(201).json({ id: 1, name: 'Teacher' })),
+  CreateTeacher: jest.fn((req, res) => res.status(201).json({ id: 1, name: 'Teacher' })),
   getSingleTeacher: jest.fn((req, res) => res.status(200).json({ id: req.params.id, name: 'Teacher' })),
   updateTeacher: jest.fn((req, res) => res.status(200).json({ id: req.params.id, name: 'Updated Teacher' })),
   deleteTeacher: jest.fn((req, res) => res.status(204).send())
